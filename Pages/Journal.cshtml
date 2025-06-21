@@ -1,0 +1,92 @@
+﻿@page
+@model ExerciseJournalAPI.Pages.JournalModel
+@{
+    <div id="frame-div">
+        <div id="header-id">
+            <h1 id="header-h1">Exercise Journal</h1>          
+        </div>
+        <div id="content-div">
+            <div id="even-div">
+                <div id="search-div" class="content">
+                    <div id="explanation-div">
+                    <h5>Exercise</h5>
+                    </div>
+                    <div id="searchbar-div">
+                        <input type="text" id="exercise-search" placeholder="Search..." class="form-control" style="background-color:transparent;border:0px;"/>
+                        <!--h6 id="search-h6">Search... <span id="x">x</span></!--h6-->
+                    </div>
+                    <div id="results-div">
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="journal-div" class="content">
+                <div id="date-div">
+                <strong>
+                    <button class="picker" id="year" onclick="changeYear(-1)">&#60;</button>
+                    <span style="color:#9e9fa2;" id="year-display">@Model.CurrentDate.Year</span>
+                    <button class="picker" onclick="changeYear(1)">&#62;</button>
+
+                    <button class="picker" onclick="changeMonth(-1)">&#60;</button>
+                    <span style="color:#9e9fa2;" id="month-display">@Model.CurrentDate.ToString("MMMM").ToUpper()</span>
+                    <button class="picker" onclick="changeMonth(1)">&#62;</button>
+
+                    <button class="picker" onclick="changeDay(-1)">&#60;</button>
+                    <span style="color:#9e9fa2;" id="day-display">@Model.CurrentDate.Day</span>
+                    <button class="picker" onclick="changeDay(1)">&#62;</button>
+                </strong>
+
+                </div>
+                <div id="column-div" class="column grid-row">
+                    <span class="exercise"><strong>Exercise</strong></span><span class="target"><strong>Target</strong></span><span class="reps"><strong>Repetitions</strong></span><span class="sets"><strong>Sets</strong></span>
+
+                </div>
+                <div id="row-div">
+                    <div id="entry-div">
+
+                            @if (Model.JournalsForTheDay.Any())
+                            {
+                                <ul>
+                                    @foreach (var journal in Model.JournalsForTheDay)
+                                    {
+                                    <li class="column  grid-row" data-id="@journal.Id">
+
+                                        <span class="exercise"><strong>@char.ToUpper(journal.Exercise[0])@journal.Exercise.Substring(1)</strong></span>
+                                        <span class="target"><strong>@char.ToUpper(journal.Target[0])@journal.Target.Substring(1)</strong></span>
+
+                                        <span class="reps">
+                                            <button class="picker" onclick="updateCount(@journal.Id, 'Repetitions', -1)">&#60;</button>
+                                            <strong id="reps-@journal.Id">@journal.Repetitions</strong>
+                                            <button class="picker" onclick="updateCount(@journal.Id, 'Repetitions', 1)">&#62;</button>
+                                        </span>
+
+                                        <span class="sets">
+                                            <button class="picker" onclick="updateCount(@journal.Id, 'Sets', -1)">&#60;</button>
+                                            <strong id="sets-@journal.Id">@journal.Sets</strong>
+                                            <button class="picker" onclick="updateCount(@journal.Id, 'Sets', 1)">&#62;</button>
+                                        </span>
+                                        </li>
+                                    }
+                                </ul>
+                            }
+                            else
+                            {
+                                <p>No journal entries for this day.</p>
+                            }
+
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+
+    <script>
+        let currentDateStr = '@Model.CurrentDate.ToString("yyyy-MM-dd")';
+        let currentDate = new Date(currentDateStr);        
+    </script>
+    <script src="~/js/exerciseSearch.js"></script>
+
+
+}

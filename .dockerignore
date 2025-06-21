@@ -1,0 +1,6 @@
+﻿Dockerfile
+.dockerignore
+*.md
+*.log
+bin/
+obj/

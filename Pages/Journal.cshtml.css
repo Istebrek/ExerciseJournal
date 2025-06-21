@@ -1,0 +1,135 @@
+﻿body {
+    background-color: #efeeee !important;
+}
+header {
+    background-color: #efeeee !important;
+}
+
+
+
+#header-h1 {
+    color: #280f91;
+}
+
+.content {
+    width:100%;
+}
+
+#content-div {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    gap:4rem;
+
+}
+
+#search-div {
+    width: 100%;
+    background-color: white;
+    border: #9e9fa2 solid 1px;
+    border-radius: 7px;
+    padding: 45px;
+    height:400px;
+}
+
+#even-div {
+    display: grid;
+    align-self: start;
+    padding-top: 40px;
+}
+
+#frame-div {
+    display: grid;
+    padding:35px 40px;
+    margin:0px;
+}
+
+#searchbar-div {
+    background-color: #efeeee;
+    color: #9e9fa2;
+    border-radius: 7px;
+    padding: 10px;
+    margin: 0px;
+}
+
+
+#x {
+   float:right;
+   font-size:1rem;
+}
+
+#explanation-div {
+    padding: 0px;
+    margin:-3px;
+    padding-left:3px;
+}
+
+#results-div {
+    padding-left: 3px;
+    margin-top: 15px;
+    overflow-y: auto;
+    max-height: 240px;
+    scrollbar-color: #9e9fa2 transparent !important;
+}
+
+#year {
+    margin-left:5px !important;
+}
+
+.picker {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: #9e9fa2;
+    margin: 1px 0px; 
+
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+li {
+    text-decoration: none;
+    list-style: none;
+    color: black !important;
+    background-color: white;
+    border-radius: 7px !important;
+    border: 1px #9e9fa2 solid;
+    background-color:white !important;
+}
+
+.column {
+    background-color: #f7f5f8;
+    border-radius: 20px;
+    color: #9e9fa2;
+    margin: 10px 0px;
+    padding: 10px 20px !important;
+
+}
+
+
+.grid-row {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr 1fr;
+    gap: 50px;
+    padding: 4px 0;
+    align-items: center;
+    font: bolder;
+}
+
+li.grid-row {
+    list-style: none;
+    color: black;
+}
+
+#entry-div {
+    overflow-y: auto;
+    max-height: 340px;
+    scrollbar-track-color: transparent !important;
+    scrollbar-color: #9e9fa2 transparent !important;
+}
+
+    #entry-div::-webkit-scrollbar-track {
+        background: transparent !important; 
+    }

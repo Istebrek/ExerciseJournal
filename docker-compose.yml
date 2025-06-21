@@ -1,0 +1,25 @@
+﻿services:
+  web:
+    build: .
+    ports:
+      - "5050:8080"
+    depends_on:
+      - db
+    environment:
+      ASPNETCORE_URLS: "http://+:8080"
+      ConnectionStrings__DefaultConnection: "Server=db;Port=3306;Database=ExerciseJournalDB;User=Iste;Password=supersecret;"
+
+  db:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: supersecret
+      MYSQL_DATABASE: ExerciseJournalDB
+      MYSQL_USER: Iste
+      MYSQL_PASSWORD: supersecret
+    volumes:
+      - dbdata:/var/lib/mysql
+    ports:
+     - "3306:3306"
+
+volumes:
+  dbdata:
