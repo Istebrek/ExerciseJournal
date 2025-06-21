@@ -9,6 +9,9 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddHttpClient<ExerciseAPI>();
 
+builder.Services.AddScoped<DayInitializer>();
+
+
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
@@ -51,7 +54,6 @@ using (var scope = app.Services.CreateScope())
     await initializer.InitializeAsync();
 }
 
-builder.Services.AddScoped<DayInitializer>();
 
 
 app.Run();
